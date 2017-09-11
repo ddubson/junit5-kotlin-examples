@@ -1,8 +1,11 @@
 package com.ddubson.junit5
 
+import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertAll
+import org.junit.jupiter.api.function.Executable
 
 class BasicJunit5Test {
     companion object {
@@ -10,6 +13,12 @@ class BasicJunit5Test {
         @JvmStatic
         fun beforeAllTestCases() {
             println("Runs once before all test cases.")
+        }
+
+        @AfterAll
+        @JvmStatic
+        fun afterAllTestCases() {
+            println("Runs once after all test cases.")
         }
     }
 
