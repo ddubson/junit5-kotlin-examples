@@ -1,5 +1,7 @@
 # JUnit 5 Examples
 
+[![Build Status](https://travis-ci.org/ddubson/junit5-kotlin-examples.svg)](https://travis-ci.org/ddubson/junit5-kotlin-examples)
+
 ## Running all tests cases
 
 ### via Gradle
