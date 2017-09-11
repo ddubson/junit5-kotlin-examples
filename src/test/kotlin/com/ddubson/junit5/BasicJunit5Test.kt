@@ -1,0 +1,23 @@
+package com.ddubson.junit5
+
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+
+class BasicJunit5Test {
+    companion object {
+        @BeforeAll
+        @JvmStatic
+        fun beforeAllTestCases() {
+            println("Runs once before all test cases.")
+        }
+    }
+
+    @Test
+    fun simpleTestCase() {
+        println("A simple test case.")
+
+        val numberTwo = 2
+        assertEquals(2, numberTwo)
+    }
+}
