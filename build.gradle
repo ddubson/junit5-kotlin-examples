@@ -1,33 +1,21 @@
-buildscript {
-    ext.kotlinVersion = "1.1.4-3"
-    ext.junitVersion = "5.0.0"
-    ext.junitPlatformVersion = "1.0.0"
-
-    repositories { mavenCentral() }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.junit.platform:junit-platform-gradle-plugin:$junitPlatformVersion"
-    }
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.3.11"
 }
+
+ext.junitVersion = "5.3.2"
 
 repositories { mavenCentral() }
 
-apply plugin: 'kotlin'
-apply plugin: 'org.junit.platform.gradle.plugin'
+test { useJUnitPlatform() }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.jetbrains.kotlin:kotlin-reflect"
 
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
     testCompile "org.junit.jupiter:junit-jupiter-params:$junitVersion"
-
     runtime "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    runtime "org.junit.platform:junit-platform-console:$junitPlatformVersion"
 }
-
-apply from: "junit5.gradle"
 
 compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
 compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
